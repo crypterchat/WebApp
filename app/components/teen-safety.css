@@ -1,0 +1,521 @@
+/* ── TEEN SAFETY / MESSAGE DELIVERY SECTION (SECTIONS 3 & 4) ── */
+
+.teensafety-wrap {
+  width: 100%;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+/* Tinted top section containing the 3 phones */
+.teensafety-phones-section {
+  background: var(--panel1-bg, #e7ecf7);
+  width: 100%;
+  padding: 80px 24px 88px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #e8eaed;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .teensafety-phones-section {
+  background: #090f1d;
+  border-top-color: #1a253a;
+}
+
+.teensafety-phones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Phone hardware frame */
+.teensafety-phones .phone {
+  width: 270px;
+  min-width: 270px;
+  max-width: 270px;
+  background: #000000;
+  border-radius: 44px;
+  padding: 10px;
+  box-shadow: 0 30px 60px -20px rgba(20, 30, 60, 0.35), 0 8px 20px -8px rgba(20, 30, 60, 0.2);
+  flex-shrink: 0;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .teensafety-phones .phone {
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.teensafety-phones .phone .screen {
+  background: #ffffff;
+  border-radius: 34px;
+  overflow: hidden;
+  height: 560px;
+  max-height: 560px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark .teensafety-phones .phone .screen {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+/* Statusbar */
+.teensafety-phones .statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px 4px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b1220;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.dark .teensafety-phones .statusbar {
+  color: #ffffff;
+}
+
+.teensafety-phones .statusbar .icons {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.teensafety-phones .statusbar svg {
+  display: block;
+}
+
+/* Lockbar at bottom */
+.teensafety-phones .lockbar {
+  width: 120px;
+  height: 5px;
+  background: #111111;
+  border-radius: 4px;
+  margin: 8px auto 6px auto;
+  flex-shrink: 0;
+}
+
+.dark .teensafety-phones .lockbar {
+  background: #e2e8f0;
+}
+
+/* ── PHONE E: Notice Screen ── */
+.teensafety-phones .notice-bar {
+  padding: 14px 20px 12px 20px;
+  font-size: 13px;
+  color: #5b6472;
+  border-bottom: 1px solid #e3e6ec;
+  flex-shrink: 0;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.dark .teensafety-phones .notice-bar {
+  color: #94a3b8;
+  border-bottom-color: #334155;
+}
+
+.teensafety-phones .notice-body {
+  flex: 1;
+}
+
+.teensafety-phones .notice-footer {
+  padding: 16px 20px;
+  font-size: 12px;
+  color: #5b6472;
+  text-align: center;
+  border-top: 1px solid #e3e6ec;
+  flex-shrink: 0;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.dark .teensafety-phones .notice-footer {
+  color: #94a3b8;
+  border-top-color: #334155;
+}
+
+/* ── PHONE F: Informational Modal Screen ── */
+.teensafety-phones .modal-close {
+  align-self: flex-end;
+  margin: 8px 16px 0 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #f0f1f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #5b6472;
+  cursor: pointer;
+}
+
+.dark .teensafety-phones .modal-close {
+  background: #1e293b;
+  color: #94a3b8;
+}
+
+.teensafety-phones .modal-icon {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 16px 0;
+  flex-shrink: 0;
+}
+
+.teensafety-phones .modal-title {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.3;
+  padding: 0 22px;
+  margin-bottom: 20px;
+  color: #0b1220;
+  flex-shrink: 0;
+}
+
+.dark .teensafety-phones .modal-title {
+  color: #ffffff;
+}
+
+.teensafety-phones .modal-item {
+  display: flex;
+  gap: 10px;
+  padding: 0 20px;
+  margin-bottom: 16px;
+}
+
+.teensafety-phones .modal-ico {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.teensafety-phones .modal-item-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  color: #0b1220;
+}
+
+.dark .teensafety-phones .modal-item-title {
+  color: #ffffff;
+}
+
+.teensafety-phones .modal-item-desc {
+  font-size: 11.5px;
+  color: #5b6472;
+  line-height: 1.45;
+}
+
+.dark .teensafety-phones .modal-item-desc {
+  color: #94a3b8;
+}
+
+/* ── PHONE G: Settings Detail Screen ── */
+.teensafety-phones .settings-header {
+  padding: 8px 16px 0 16px;
+  flex-shrink: 0;
+}
+
+.teensafety-phones .settings-header .back {
+  font-size: 22px;
+  color: #0866ff;
+  font-weight: 400;
+  width: 16px;
+  cursor: pointer;
+}
+
+.dark .teensafety-phones .settings-header .back {
+  color: #38bdf8;
+}
+
+.teensafety-phones .settings-title {
+  font-size: 20px;
+  font-weight: 800;
+  padding: 8px 18px 10px 18px;
+  color: #0b1220;
+  flex-shrink: 0;
+}
+
+.dark .teensafety-phones .settings-title {
+  color: #ffffff;
+}
+
+.teensafety-phones .settings-desc {
+  font-size: 12px;
+  color: #5b6472;
+  line-height: 1.5;
+  padding: 0 18px 16px 18px;
+  flex-shrink: 0;
+}
+
+.dark .teensafety-phones .settings-desc {
+  color: #94a3b8;
+}
+
+.teensafety-phones .settings-desc .link {
+  color: #0866ff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dark .teensafety-phones .settings-desc .link {
+  color: #38bdf8;
+}
+
+.teensafety-phones .settings-subhead {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5b6472;
+  padding: 0 18px 6px 18px;
+  flex-shrink: 0;
+}
+
+.dark .teensafety-phones .settings-subhead {
+  color: #94a3b8;
+}
+
+.teensafety-phones .settings-list {
+  background: #ffffff;
+  border-radius: 12px;
+  margin: 0 16px 16px 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.dark .teensafety-phones .settings-list {
+  background: #1e293b;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.teensafety-phones .settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f0f1f3;
+  transition: border-color 0.3s ease;
+}
+
+.dark .teensafety-phones .settings-row {
+  border-bottom-color: #334155;
+}
+
+.teensafety-phones .settings-row:last-child {
+  border-bottom: none;
+}
+
+.teensafety-phones .settings-row-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b1220;
+}
+
+.dark .teensafety-phones .settings-row-title {
+  color: #ffffff;
+}
+
+.teensafety-phones .settings-row-sub {
+  font-size: 11.5px;
+  color: #5b6472;
+  margin-top: 2px;
+}
+
+.dark .teensafety-phones .settings-row-sub {
+  color: #94a3b8;
+}
+
+.teensafety-phones .chev {
+  color: #c7cad1;
+  font-size: 15px;
+}
+
+.dark .teensafety-phones .chev {
+  color: #64748b;
+}
+
+/* ── SECTION 4: TEXT PAIR (Bottom Columns) ── */
+.teensafety-text-pair {
+  background: #ffffff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #e8eaed;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .teensafety-text-pair {
+  background: #070c18;
+  border-top-color: #1a253a;
+}
+
+.teensafety-text-pair-inner {
+  display: flex;
+  gap: 64px;
+  max-width: 1240px;
+  width: 100%;
+  padding: 96px 48px 120px 48px;
+  box-sizing: border-box;
+}
+
+.teensafety-text-col {
+  flex: 1;
+  max-width: 560px;
+}
+
+.teensafety-text-col h2 {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0 0 24px 0;
+  color: #0b1220;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.dark .teensafety-text-col h2 {
+  color: #ffffff;
+}
+
+.teensafety-text-col .desc {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #5b6472;
+  margin: 0;
+  max-width: 48ch;
+  transition: color 0.3s ease;
+}
+
+.dark .teensafety-text-col .desc {
+  color: #94a3b8;
+}
+
+.teensafety-text-col .link-lg {
+  color: #0866ff;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 20px;
+  transition: color 0.3s ease;
+}
+
+.dark .teensafety-text-col .link-lg {
+  color: #38bdf8;
+}
+
+.dark .teensafety-phones .modal-icon path:first-child {
+  fill: #1e293b;
+  stroke: #38bdf8;
+}
+
+/* Dots pagination for mobile carousel */
+.teensafety-dots {
+  display: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 980px) {
+  .teensafety-phones-section {
+    padding: 48px 0 36px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .teensafety-phones-carousel-container {
+    width: 100%;
+    position: relative;
+  }
+
+  .teensafety-phones {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 16px max(24px, calc(50vw - 135px)) 24px max(24px, calc(50vw - 135px));
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+  }
+
+  .teensafety-phones::-webkit-scrollbar {
+    display: none;
+  }
+
+  .teensafety-phones .phone {
+    width: 270px;
+    min-width: 270px;
+    max-width: 270px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    transform: none !important;
+    cursor: pointer;
+  }
+
+  .teensafety-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    z-index: 10;
+  }
+
+  .teensafety-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(11, 18, 32, 0.2);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .teensafety-dot.active {
+    width: 24px;
+    background: #0866ff;
+  }
+
+  .dark .teensafety-dot {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .dark .teensafety-dot.active {
+    background: #38bdf8;
+  }
+
+  .teensafety-text-pair-inner {
+    flex-direction: column;
+    padding: 56px 24px 80px 24px;
+    gap: 40px;
+  }
+  .teensafety-text-col h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+}
