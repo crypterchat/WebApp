@@ -41,3 +41,6 @@ next-env.d.ts
 
 # Demo capture temp
 .demo-video/
+
+# Local Netlify folder
+.netlify

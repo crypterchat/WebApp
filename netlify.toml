@@ -1,0 +1,28 @@
+# CrypterChat — Netlify (Next.js 16 + Payload CMS)
+# Site: https://crypterchat.netlify.app
+# Project ID: 6a71c389-11d3-4c2a-9592-893b575a1b5f
+#
+# Do not pin @netlify/plugin-nextjs. Netlify applies the OpenNext adapter
+# automatically and keeps it current for Next.js 13.5+.
+#
+# Required environment variables (Site configuration → Environment variables),
+# available to Builds and Functions / Runtime:
+#   DATABASE_URL     Neon Postgres connection string
+#   PAYLOAD_SECRET   Payload CMS secret
+# Optional:
+#   NEXT_PUBLIC_SERVER_URL   Public origin, e.g. https://crypterchat.netlify.app
+#
+# Continuous deployment (GitHub App):
+#   Production  — push or merge to `clean-upload`
+#   Previews    — pull requests against `clean-upload`
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+  NODE_OPTIONS = "--max-old-space-size=4096"
+  SHARP_IGNORE_GLOBAL_LIBVIPS = "1"
+  NPM_FLAGS = "--legacy-peer-deps"
