@@ -5,6 +5,8 @@ import Link from "next/link";
 import "./globals.css";
 import AppleFooter from "./components/AppleFooter";
 
+export const dynamic = "force-dynamic";
+
 export default async function NotFound() {
   const payload = await getPayload({ config: configPromise });
   

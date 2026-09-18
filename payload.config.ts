@@ -292,10 +292,17 @@ export default buildConfig({
     Homepage,
   ],
   secret: process.env.PAYLOAD_SECRET || 'super-secret-key',
+  serverURL:
+    process.env.NEXT_PUBLIC_SERVER_URL ||
+    process.env.URL ||
+    'http://localhost:3000',
   db: postgresAdapter({
     push: false,
     pool: {
       connectionString: process.env.DATABASE_URL || '',
+      max: 5,
+      idleTimeoutMillis: 30000,
+      connectionTimeoutMillis: 10000,
     },
   }),
   typescript: {

@@ -1,6 +1,10 @@
 # CrypterChat WebApp
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6a71c389-11d3-4c2a-9592-893b575a1b5f/deploy-status)](https://app.netlify.com/projects/crypterchat/deploys)
+
 Next.js app for CrypterChat — marketing site, Payload CMS, and authenticated dashboard (API keys, servers, chat scan, docs).
+
+Production: **https://crypterchat.netlify.app**
 
 ## Screenshots
 
@@ -34,6 +38,22 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+Copy `.env.example` to `.env` and set `DATABASE_URL` and `PAYLOAD_SECRET`.
+
+## Deploy (Netlify)
+
+The GitHub repo is connected to the Netlify project **crypterchat** (site ID `6a71c389-11d3-4c2a-9592-893b575a1b5f`). Production deploys from the `clean-upload` branch.
+
+In [Netlify environment variables](https://app.netlify.com/projects/crypterchat/configuration/env), set these for **Builds** and **Functions / Runtime**:
+
+| Variable | Purpose |
+|---|---|
+| `DATABASE_URL` | Neon Postgres connection string (`sslmode=require`) |
+| `PAYLOAD_SECRET` | Payload CMS secret |
+| `NEXT_PUBLIC_SERVER_URL` | Public origin, e.g. `https://crypterchat.netlify.app` |
+
+If Git-connected builds fail while cloning, add the Netlify **Deploy key** under GitHub → Settings → Deploy keys (read-only).
 
 ## Demo captures
 
