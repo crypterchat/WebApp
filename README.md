@@ -43,7 +43,11 @@ Copy `.env.example` to `.env` and set `DATABASE_URL` and `PAYLOAD_SECRET`.
 
 ## Deploy (Netlify)
 
-The GitHub repo is connected to the Netlify project **crypterchat** (site ID `6a71c389-11d3-4c2a-9592-893b575a1b5f`). Production deploys from the `clean-upload` branch.
+## Deploy (Netlify)
+
+The GitHub repo is connected to the Netlify project **crypterchat** (site ID `6a71c389-11d3-4c2a-9592-893b575a1b5f`).
+
+**Continuous deploy:** a push or merge to `clean-upload` rebuilds and publishes [https://crypterchat.netlify.app](https://crypterchat.netlify.app). Pull requests get Deploy Previews automatically.
 
 In [Netlify environment variables](https://app.netlify.com/projects/crypterchat/configuration/env), set these for **Builds** and **Functions / Runtime**:
 

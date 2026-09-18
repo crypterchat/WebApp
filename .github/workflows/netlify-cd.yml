@@ -1,0 +1,28 @@
+# Netlify GitHub App already deploys this repo:
+#   push to `clean-upload`  → production (https://crypterchat.netlify.app)
+#   pull requests           → Deploy Previews
+#
+# This workflow is a backup trigger so a production rebuild still happens
+# if the GitHub App hook is delayed. It no-ops without NETLIFY_AUTH_TOKEN.
+
+name: Netlify CD
+
+on:
+  push:
+    branches: [clean-upload]
+  workflow_dispatch:
+
+jobs:
+  trigger-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify production build
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 6a71c389-11d3-4c2a-9592-893b575a1b5f
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "NETLIFY_AUTH_TOKEN is not set. The Netlify GitHub App still deploys this push."
+            exit 0
+          fi
+          npx --yes netlify-cli deploy --trigger --prod --site "$NETLIFY_SITE_ID"

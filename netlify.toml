@@ -11,6 +11,10 @@
 #   PAYLOAD_SECRET   Payload CMS secret
 # Optional:
 #   NEXT_PUBLIC_SERVER_URL   Public origin, e.g. https://crypterchat.netlify.app
+#
+# Continuous deployment (GitHub App):
+#   Production  — push or merge to `clean-upload`
+#   Previews    — pull requests against `clean-upload`
 
 [build]
   command = "npm run build"
