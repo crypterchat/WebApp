@@ -247,6 +247,16 @@ export default buildConfig({
   admin: {
     user: 'users',
   },
+  csrf: [
+    'http://localhost:3000',
+    'https://crypterchat.netlify.app',
+    process.env.NEXT_PUBLIC_SERVER_URL || '',
+  ].filter(Boolean),
+  cors: [
+    'http://localhost:3000',
+    'https://crypterchat.netlify.app',
+    process.env.NEXT_PUBLIC_SERVER_URL || '',
+  ].filter(Boolean),
   editor: lexicalEditor({}),
   collections: [
     {
