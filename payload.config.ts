@@ -82,6 +82,42 @@ export default buildConfig({
         }
       }
 
+      // Seed Announcement Bar
+      const announcementConfig = await payload.findGlobal({ slug: 'announcement-bar' });
+      if (!announcementConfig?.content) {
+        await payload.updateGlobal({
+          slug: 'announcement-bar',
+          data: {
+            enabled: true,
+            content: {
+              root: {
+                type: 'root',
+                children: [
+                  {
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        text: 'PGPJS v6.0 is out — full streaming encryption support.',
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    format: '',
+                    indent: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                version: 1,
+              },
+            },
+          },
+        });
+      }
+
       // Seed Navigation
       const navConfig = await payload.findGlobal({ slug: 'navigation' });
       if (!navConfig?.links || navConfig.links.length === 0) {
@@ -89,12 +125,10 @@ export default buildConfig({
           slug: 'navigation',
           data: {
             links: [
-              { label: 'About', url: '/about' },
-              { label: 'Blog', url: '/blog' },
-              { label: 'Careers', url: '/careers' },
-              { label: 'Documentation', url: '/docs' },
-              { label: 'API Reference', url: '/login' },
-              { label: 'Tutorials', url: '/tutorials' }
+              { label: 'Docs', url: '/docs' },
+              { label: 'ChatScan', url: '/chatscan' },
+              { label: 'API Reference', url: '/login', isExternal: true },
+              { label: 'Community', url: '/blog' },
             ],
             githubUrl: 'https://github.com/pgpjs',
             npmUrl: 'https://www.npmjs.com/package/openpgp'
@@ -161,7 +195,17 @@ export default buildConfig({
               { number: '7.2K', label: 'GitHub stars' },
               { number: '100+', label: 'Contributors worldwide' },
               { number: 'v6.0', label: 'Latest stable release' }
-            ]
+            ],
+            codeSnippet: {
+              title: 'Run your own private chat server.',
+              body: 'CrypterChat is a secure blockchain messaging platform — inspired by WhatsApp, but built for real privacy, ownership and control. Self-host it in minutes.',
+              primaryBtnText: 'Deploy Your Server',
+              primaryBtnUrl: '/server',
+              secondaryBtnText: 'View Documentation',
+              secondaryBtnUrl: '/docs',
+              codeTitle: 'server.ts',
+              code: 'import { createServer } from "crypterchat"\n\nawait createServer({\n  port: 8443,\n  e2e: true,\n})',
+            },
           }
         });
       }
@@ -307,7 +351,7 @@ export default buildConfig({
     process.env.URL ||
     'http://localhost:3000',
   db: postgresAdapter({
-    push: false,
+    push: process.env.PAYLOAD_PUSH === 'true',
     pool: {
       connectionString: process.env.DATABASE_URL || '',
       max: 5,

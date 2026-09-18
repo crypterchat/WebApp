@@ -64,7 +64,8 @@ If Git-connected builds fail while cloning, add the Netlify **Deploy key** under
 Regenerate screenshots and videos locally:
 
 ```bash
-npm run record-demo
+npm run capture-homepages   # home + landing into docs/screenshots
+npm run record-demo         # all pages + walkthrough video
 ```
 
 Outputs also land on your Desktop under `crypterchat-captures/`. Demo mode uses `?demo=1` so dashboard pages render without a real Firebase login.

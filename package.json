@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "record-demo": "node scripts/record-demo.mjs"
+    "record-demo": "node scripts/record-demo.mjs",
+    "capture-homepages": "node scripts/capture-homepages.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
